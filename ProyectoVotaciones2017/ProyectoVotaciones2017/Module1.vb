@@ -2,7 +2,7 @@
 
     Sub Main()
         Console.WriteLine("Probando ")
-        Console.WriteLine("")
+        Console.WriteLine("  ")
 
     End Sub
 

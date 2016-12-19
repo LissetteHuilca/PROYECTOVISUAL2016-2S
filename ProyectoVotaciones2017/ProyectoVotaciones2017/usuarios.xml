@@ -1,0 +1,36 @@
+<Registro_Usuarios>
+<Administrador>
+    <Nombre>Lissette</Nombre>
+    <Apellido>Huilca</Apellido>
+    <Edad>19</Edad>
+    <Usuario>lissette</Usuario>
+    <Contraseña>stephania</Contraseña>
+    <Email>lissette.huilca@gmail.com</Email>
+    <Telefono>2053476</Telefono>
+    <Genero>Femenino</Genero>
+    <Cedula>0955872478</Cedula>
+</Administrador>
+<Votante>
+    <Nombre>Rosario</Nombre>
+    <Apellido>Aguilar</Apellido>
+    <Edad>21</Edad>
+    <Usuario>rosario</Usuario>
+    <Contraseña>05021997</Contraseña>
+    <Email>rosario@gmail.com</Email>
+    <Telefono>26987451</Telefono>
+    <Genero>Femenino</Genero>
+    <Cedula>0945931257</Cedula>
+</Votante>
+<Candidato>
+    <Nombre>Yander</Nombre>
+    <Apellido>Santana</Apellido>
+    <Edad>20</Edad>
+    <Email>ymsantan@espol.edu.ec</Email>
+    <Telefono>2053476</Telefono>
+    <Genero>Masculino</Genero>
+    <Cedula>0951963727</Cedula>
+    <NroPersonasCargo>5</NroPersonasCargo>
+    <Usuario>ymsantan</Usuario>
+    <Contraseña>barcelona</Contraseña>
+</Candidato>
+</Registro_Usuarios>
