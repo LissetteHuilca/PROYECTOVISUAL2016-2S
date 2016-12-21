@@ -1,4 +1,4 @@
-﻿Public Class Reciento
+﻿Public Class Recinto
     Private _nombre As String
     Public Property Nombre() As String
         Get
