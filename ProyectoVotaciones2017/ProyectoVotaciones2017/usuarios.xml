@@ -1,5 +1,5 @@
-<Registro_Usuarios>
-<Administrador>
+﻿<Registro_Usuarios>
+  <Administrador>
     <Nombre>Lissette</Nombre>
     <Apellido>Huilca</Apellido>
     <Edad>19</Edad>
@@ -9,8 +9,8 @@
     <Telefono>2053476</Telefono>
     <Genero>Femenino</Genero>
     <Cedula>0955872478</Cedula>
-</Administrador>
-<Votante>
+  </Administrador>
+  <Votante>
     <Nombre>Rosario</Nombre>
     <Apellido>Aguilar</Apellido>
     <Edad>21</Edad>
@@ -20,17 +20,88 @@
     <Telefono>26987451</Telefono>
     <Genero>Femenino</Genero>
     <Cedula>0945931257</Cedula>
-</Votante>
-<Candidato>
+  </Votante>
+  <Candidato>
     <Nombre>Yander</Nombre>
     <Apellido>Santana</Apellido>
-    <Edad>20</Edad>
+    <Edad>33</Edad>
     <Email>ymsantan@espol.edu.ec</Email>
     <Telefono>2053476</Telefono>
     <Genero>Masculino</Genero>
     <Cedula>0951963727</Cedula>
-    <NroPersonasCargo>5</NroPersonasCargo>
+    <Dignidad>Presidente</Dignidad>
     <Usuario>ymsantan</Usuario>
     <Contraseña>barcelona</Contraseña>
-</Candidato>
+  </Candidato>
+  <Candidato>
+    <Nombre>Moises</Nombre>
+    <Apellido>Castillo</Apellido>
+    <Edad>34</Edad>
+    <Email>moises@hotmail.com</Email>
+    <Telefono>2348976</Telefono>
+    <Genero>Masculino</Genero>
+    <Cedula>0932189765</Cedula>
+    <Usuario>moicas</Usuario>
+    <Contraseña>peluche</Contraseña>
+  </Candidato>
+  <Candidato>
+    <Nombre>cristian</Nombre>
+    <Apellido>cevallos</Apellido>
+    <Edad>29</Edad>
+    <Email>ccristian@gmail.com</Email>
+    <Telefono>0987657809</Telefono>
+    <Genero>Masculino</Genero>
+    <Cedula>0934127654</Cedula>
+    <Dignidad>Presidente</Dignidad>
+    <Usuario>ccristian</Usuario>
+    <Contraseña>caramelo</Contraseña>
+  </Candidato>
+  <Candidato>
+    <Nombre>Valeria</Nombre>
+    <Apellido>Traverso</Apellido>
+    <Edad>30</Edad>
+    <Email>vale@gmail.com</Email>
+    <Telefono>2019873</Telefono>
+    <Genero>Femenino</Genero>
+    <Cedula>0954329864</Cedula>
+    <Dignidad>Alcalde</Dignidad>
+    <Usuario>vale</Usuario>
+    <Contraseña>valTraverso</Contraseña>
+  </Candidato>
+  <Candidato>
+    <Nombre>Carlos</Nombre>
+    <Apellido>Villacis</Apellido>
+    <Edad>32</Edad>
+    <Email>carvi@hotmail.com</Email>
+    <Telefono>0945291863</Telefono>
+    <Genero>Masculino</Genero>
+    <Cedula>0945239832</Cedula>
+    <Dignidad>ViceAlcalde</Dignidad>
+    <Usuario>carvi</Usuario>
+    <Contraseña>cvillacis</Contraseña>
+  </Candidato>
+  <Candidato>
+    <Nombre>Steven</Nombre>
+    <Apellido>Peralta</Apellido>
+    <Edad>36</Edad>
+    <Email>steven.60@hotmail.com</Email>
+    <Telefono>0919520714</Telefono>
+    <Genero>Masculino</Genero>
+    <Cedula>0910423198</Cedula>
+    <Dignidad>Asambleista</Dignidad>
+    <Usuario>steven</Usuario>
+    <Contraseña>pera</Contraseña>
+  </Candidato>
+  <Candidato>
+    <Nombre>Mayra</Nombre>
+    <Apellido>Medina</Apellido>
+    <Edad>31</Edad>
+    <Email>mairamed@hotmail.com</Email>
+    <Telefono>0910998821</Telefono>
+    <Genero>Femenino</Genero>
+    <Cedula>0910009876</Cedula>
+    <Dignidad>Asambleista</Dignidad>
+    <Usuario>mayi</Usuario>
+    <Contraseña>mayi</Contraseña>
+  </Candidato>
 </Registro_Usuarios>

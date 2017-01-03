@@ -14,7 +14,12 @@
 
     Private _contraseña As String
 
+    Public Sub New(nombre As String, apellido As String, edad As Integer, email As String, telefono As String, genero As String, cedula As String)
+        MyBase.New(nombre, apellido, edad, email, telefono, genero, cedula)
+    End Sub
+
     Public Sub New(usuario As String, contraseña As String)
+        MyBase.New()
         Me.Usuario = usuario
         Me.Contraseña = contraseña
     End Sub

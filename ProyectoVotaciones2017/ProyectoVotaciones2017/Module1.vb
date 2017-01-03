@@ -14,14 +14,33 @@ Module Module1
     Const GENERAR As Byte = 3
     Const REGRESAR As Byte = 4
     Const ACREAR As Byte = 1
-    Const AINFO As Byte = 2
-    Const AGENERAR As Byte = 3
+    Const AGENERAR As Byte = 2
     Const AREGRESAR As Byte = 4
 
     Const VERIFICAR As Byte = 1
     Const REGRESA As Byte = 2
     Const CVERIFICAR As Byte = 1
     Const CREGRESA As Byte = 2
+
+    Const OREGRESAR As Byte = 3
+
+    Const DPRESIDENTE As Byte = 1
+    Const DALCALDE As Byte = 2
+    Const DPREFECTO As Byte = 3
+    Const DASAMBLEISTA As Byte = 4
+    Const DCONSEJALES As Byte = 5
+    Const DMINISTROS As Byte = 6
+    Const DREGRESAR As Byte = 7
+
+    Const LISPRESIDENTE As Byte = 1
+    Const LISALCALDE As Byte = 2
+    Const LISPREFECTO As Byte = 3
+    Const LISASAMBLEISTA As Byte = 4
+    Const LISCONSEJALES As Byte = 5
+    Const LISMINISTROS As Byte = 6
+    Const LISREGRESAR As Byte = 7
+
+
 
     Enum Opmain
         Invalid
@@ -87,6 +106,7 @@ Module Module1
                         Console.WriteLine("Ingrese su cédula: ")
                         cedula = Console.ReadLine()
                         votante = New Votante(cedula)
+                        Console.WriteLine("ud envio" & Opcion & votante.Cedula)
                         existe = leerXmlUsuarios(votante, Opcion)
                         If existe <> True Then
                             Console.WriteLine("Cédula no existe")
@@ -164,6 +184,8 @@ Module Module1
             Select Case opcion
                 Case VLISTAR
                     Console.WriteLine("Lista De Candidatos:")
+                    ListarDignidades()
+
                 Case VVOTAR
                     Console.WriteLine("Votando...")
                 Case VOUT
@@ -177,11 +199,66 @@ Module Module1
 
     End Sub
 
+    Private Sub ListarDignidades()
+        Dim op As String = ""
+        Dim opcion As Byte
+        Do
+            ListaDignidades()
+
+            op = Console.ReadLine()
+            Try
+                opcion = CByte(op)
+            Catch ex As Exception
+                opcion = 0
+
+            End Try
+            Dim dignid As String
+            Console.WriteLine("Ud ha ingresado: {0}", op)
+            Select Case opcion
+                Case LISPRESIDENTE
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISALCALDE
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISPREFECTO
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISASAMBLEISTA
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISCONSEJALES
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISMINISTROS
+                    Console.WriteLine("Lista de candidatos a presidentes ")
+                    dignid = "Presidente"
+                Case LISREGRESAR
+                    MenuPrincipal()
+                Case Else
+                    Console.WriteLine("XXX Opción Inválida XXX")
+
+            End Select
+            Dim ncandidato As Candidato = New Candidato(raiz.Item(0), dignid)
+        Loop Until opcion = AREGRESAR
+    End Sub
+
+    Private Sub ListaDignidades()
+        Console.WriteLine("A continuacion escoja una de las dignidades :")
+        Console.WriteLine("*******  Dignidades   *******")
+        Console.WriteLine("{0}. Presidente y Vicepresidente", LISPRESIDENTE)
+        Console.WriteLine("{0}. Alcalde y Vicealcalde", LISALCALDE)
+        Console.WriteLine("{0}. Prefecto y Viceprefecto", LISPREFECTO)
+        Console.WriteLine("{0}. Asambelistas", LISASAMBLEISTA)
+        Console.WriteLine("{0}. Consejales", LISCONSEJALES)
+        Console.WriteLine("{0}. Ministros", LISMINISTROS)
+        Console.WriteLine("{0}. Regresar al menu principal", LISREGRESAR)
+    End Sub
+
     Sub MenuAdministrador()
-        Console.WriteLine("{0}. Crear dignidad", CREAR)
-        Console.WriteLine("{0}. Información de la votación", INFO)
+        Console.WriteLine("{0}. Agregar candidatos", CREAR)
         Console.WriteLine("{0}. Generar reportes", GENERAR)
-        Console.WriteLine("{0}. Regresar al menú principal", REGRESAR)
+        Console.WriteLine("{0}. Regresar al menú principal", OREGRESAR)
 
     End Sub
 
@@ -200,16 +277,15 @@ Module Module1
             End Try
 
             Console.WriteLine("Ud ha ingresado: {0}", op)
-
+            Dim nomDignidad As String
             Select Case opcion
                 Case ACREAR
-                    Console.WriteLine("Creando dignidades...")
-                Case AINFO
-                    Console.WriteLine("Informacion de la votación...")
+                    Console.WriteLine("A continuacion Escoja la dignidad del candidato a ingresar : ")
+                    IngresarDignidades()
                 Case AGENERAR
                     Console.WriteLine("Generando reportes...")
-                Case AREGRESAR
-                    Console.WriteLine("Volver al menú principal")
+                Case OREGRESAR
+                    MenuPrincipal()
                 Case Else
                     Console.WriteLine("XXX Opción Inválida XXX")
 
@@ -217,6 +293,118 @@ Module Module1
 
         Loop Until opcion = AREGRESAR
 
+    End Sub
+
+    Private Sub IngresarDignidades()
+        Dim op As String = ""
+        Dim opcion As Byte
+        Do
+            MenuDignidades()
+            Console.WriteLine("Opcion...  :")
+            op = Console.ReadLine()
+            Try
+                opcion = CByte(op)
+            Catch ex As Exception
+                opcion = 0
+
+            End Try
+            Dim dignidad As String
+
+            Select Case opcion
+                Case DPRESIDENTE
+                    Console.WriteLine("Ingrese los datos del presidente:")
+                    dignidad = "Presidente"
+                    IngresarInformacion(dignidad)
+                    Console.WriteLine("Ingrese los datos del vicepresidente:")
+                    dignidad = "Vicepresidente"
+                    IngresarInformacion(dignidad)
+                Case DALCALDE
+                    Console.WriteLine("Ingrese los datos del alcalde:")
+                    dignidad = "Alcalde"
+                    IngresarInformacion(dignidad)
+                    Console.WriteLine("Ingrese los datos del alcalde:")
+                    dignidad = "ViceAlcalde"
+                    IngresarInformacion(dignidad)
+                Case DPREFECTO
+                    Console.WriteLine("Ingrese los datos del Prefecto:")
+                    dignidad = "Prefecto"
+                    IngresarInformacion(dignidad)
+                    Console.WriteLine("Ingrese los datos del VicePrefecto:")
+                    dignidad = "VicePrefecto"
+                    IngresarInformacion(dignidad)
+                Case DASAMBLEISTA
+                    Console.WriteLine("Ingrese los datos del Asambleista:")
+                    dignidad = "Asambleista"
+                    IngresarInformacion(dignidad)
+                Case DCONSEJALES
+                    Console.WriteLine("Ingrese los datos del Concejal:")
+                    dignidad = "Concejal"
+                    IngresarInformacion(dignidad)
+                Case DMINISTROS
+                    Console.WriteLine("Ingrese los datos del Ministro:")
+                    dignidad = "Ministro"
+                    IngresarInformacion(dignidad)
+                Case DREGRESAR
+                    ManejarAdministrador()
+                Case Else
+                    Console.WriteLine("XXX Opción Inválida XXX")
+
+            End Select
+
+        Loop Until opcion = AREGRESAR
+
+
+    End Sub
+
+    Private Sub IngresarInformacion(dign As String)
+        'Dim candidato As Candidato
+        Dim candidato As New Candidato
+        Dim nombre, apellido, email, telefono, genero, cedula, dignidad, usuario, contraseña As String
+        Dim edad As Integer
+        Console.Write("Nombre    :")
+        nombre = Console.ReadLine()
+        Console.Write("Apellido    :")
+        apellido = Console.ReadLine()
+        Console.Write("Edad    :")
+        edad = Console.ReadLine()
+        Console.Write("Email    :")
+        email = Console.ReadLine()
+        Console.Write("Telefono   :")
+        telefono = Console.ReadLine()
+        Console.Write(" Genero    :")
+        genero = Console.ReadLine()
+        Console.Write("Cedula    :")
+        cedula = Console.ReadLine()
+        Console.Write("Usuario    :")
+        usuario = Console.ReadLine()
+        Console.Write("Contraseña    :")
+        contraseña = Console.ReadLine()
+        dignidad = dign
+        candidato = New Candidato(nombre, apellido, edad, email, telefono, genero, cedula, dignidad, usuario, contraseña)
+
+        Dim path As String = "..\..\usuarios.xml"
+        Dim raiz As XmlNodeList = xmldoc.GetElementsByTagName("Registro_Usuarios")
+        Dim nodos As XmlNode = candidato.agregarCandidato(xmldoc)
+
+        For Each nodo As XmlNode In raiz
+            Console.WriteLine("Registrando...")
+            nodo.AppendChild(nodos)
+        Next
+        Console.WriteLine("El nuevo candidato fue agregado con exito")
+        xmldoc.Save(path)
+
+
+    End Sub
+
+    Private Sub MenuDignidades()
+        Console.WriteLine("*******  Dignidades   *******")
+        Console.WriteLine("{0}. Presidente y Vicepresidente", DPRESIDENTE)
+        Console.WriteLine("{0}. Alcalde y Vicealcalde", DALCALDE)
+        Console.WriteLine("{0}. Prefecto y Viceprefecto", DPREFECTO)
+        Console.WriteLine("{0}. Asambelistas", DASAMBLEISTA)
+        Console.WriteLine("{0}. Consejales", DCONSEJALES)
+        Console.WriteLine("{0}. Ministros", DMINISTROS)
+        Console.WriteLine("{0}. Regresar al menu principal", DREGRESAR)
     End Sub
 
     Sub MenuCandidato()
@@ -260,7 +448,8 @@ Module Module1
 
         xmldoc.Load(path)
 
-        Dim cargo = 1
+        Dim cargo As Integer
+        cargo = opcion
 
 
         Dim coincidencias As Integer = 0
@@ -289,25 +478,25 @@ Module Module1
             If coincidencias = 2 Then
                 Return True
             End If
-        End If
-        If cargo = 2 Then
-            'For Each nodoPadre As XmlNode In raiz
-            '    For Each nodoHijo As XmlNode In nodoPadre
-            '    If nodoHijo.Name = "Votante" Then
-            '        For Each nodoChid As XmlNode In nodoHijo.ChildNodes
-            '            If (nodoChid.Name = "Cedula") Then
-            '                If String.Compare(nodoChid.InnerText, usuario.Cedula, True) = 0 Then
-            '                    Console.WriteLine("----------Bienvenido ---------- ")
-            '                    Console.WriteLine("Cédula" & vbTab & nodoChid.InnerText)
-            '                End If
-            '            End If
-            '        Next
-            '    End If
-            'Next
-            'Next
+        ElseIf cargo = 2 Then
 
+            For Each nodoPadre As XmlNode In raiz
+                For Each nodoHijo As XmlNode In nodoPadre
+                    If nodoHijo.Name = "Votante" Then
+                        For Each nodoChid As XmlNode In nodoHijo.ChildNodes
+                            If (nodoChid.Name = "Cedula") Then
+                                If String.Compare(nodoChid.InnerText, usuario.Cedula, True) = 0 Then
+                                    Console.WriteLine("----------Bienvenido ---------- ")
+                                    Console.WriteLine("Cédula" & vbTab & nodoChid.InnerText)
+                                    Return True
+                                End If
+                            End If
+                        Next
+                    End If
+                Next
+            Next
         Else
-                For Each nodoPadre As XmlNode In raiz
+            For Each nodoPadre As XmlNode In raiz
                 For Each nodoHijo As XmlNode In nodoPadre
                     If nodoHijo.Name = "Candidato" Then
                         For Each nodoChid As XmlNode In nodoHijo.ChildNodes
@@ -332,6 +521,7 @@ Module Module1
                 Return True
             End If
         End If
+
     End Function
 
 End Module
